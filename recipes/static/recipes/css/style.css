@@ -168,6 +168,7 @@ h6 {
 
 .recipe-list-item {
     max-width: 64rem;
+    height: fit-content;
 }
 
 .recipe-list-item:hover {
@@ -178,6 +179,10 @@ h6 {
 .recipe-tittle-container {
     padding: var(--spacing-gutter-medium);
     padding-bottom: 2rem
+}
+.recipe-tittle-container a {
+    text-decoration: none;
+    color: var(--color-primary-dark);
 }
 
 .recipe-author {
@@ -235,6 +240,19 @@ h6 {
 
 .recipe-footer a:hover {
     filter: brightness(2);
+}
+
+.main-content-detail .recipe-list-item{
+    max-width: 84rem;
+}
+.main-content-detail .recipe-list-item:hover{
+    transform: scale(1.02);
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, .0.2);
+    margin: 0 auto;
+}
+
+.preparation-steps {
+    padding: var(--spacing-gutter-medium);
 }
 
 .main-footer {
