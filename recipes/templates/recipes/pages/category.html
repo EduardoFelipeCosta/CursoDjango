@@ -1,7 +1,6 @@
 {%extends 'global/base.html'%}
-
-{% block title %}home | {% endblock title %}
-{%block content%} 
+{% block title %}category | {% endblock title %}
+{%block content%}
 <div class="main-content main-content-list container">
     {% for recipe in recipes %}
         {% include "recipes/partials/recipe.html" %}
