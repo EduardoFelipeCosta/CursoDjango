@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Recipe
-
-
+from django.shortcuts import render, get_list_or_404, get_object_or_404
+from recipes.models import Recipe
+from django.http import Http404
+from utils.recipes.factory import make_recipe
 def home(request):
     recipes = Recipe.objects.filter(
         is_published=True
@@ -20,6 +20,8 @@ def category(request, category_id):
 
     return render(request, 'recipes/pages/category.html', context={
         'recipes': recipes,
+        'title': f'{recipes.first().category.name} - Category | '
+                 f'{recipes.first().category.name if recipes.exists() else ""}',
     })
 
 
