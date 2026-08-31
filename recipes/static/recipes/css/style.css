@@ -273,3 +273,36 @@ h6 {
 .main-footer a:hover {
     filter: brightness(.8);
 }
+
+.preparation-steps h1,
+.preparation-steps h2,
+.preparation-steps h3,
+.preparation-steps h4,
+.preparation-steps h5,
+.preparation-steps h6,
+.preparation-steps ol,
+.preparation-steps ul,
+.preparation-steps pre{
+    margin: 2rem 0;
+}
+
+.preparation-steps ol,
+.preparation-steps ul{
+    marin: 2rem 0;
+    padin: 0 2rem;
+}
+
+.center{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-x{
+    margin: 0 var(--spacing-gutter-medium);
+}
+
+.m-y{
+    margin: var(--spacing-gutter-medium) 0;
+}
