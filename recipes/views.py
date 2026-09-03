@@ -15,14 +15,19 @@ def home(request):
 def category(request, category_id):
     recipes = Recipe.objects.filter(
         category__id=category_id,
-        is_published=True
-    ).order_by('-id')
+        is_published=True,
+    )
 
-    return render(request, 'recipes/pages/category.html', context={
+    if not recipes:
+        raise Http404()
+
+    context = {
         'recipes': recipes,
         'title': f'{recipes.first().category.name} - Category | '
-                 f'{recipes.first().category.name if recipes.exists() else ""}',
-    })
+                 f'Recipes',
+    }
+
+    return render(request, 'recipes/pages/category.html', context)
 
 
 def recipe(request, id):
@@ -32,7 +37,10 @@ def recipe(request, id):
         is_published=True,
     )
 
-    return render(request, 'recipes/pages/recipe-view.html', context={
+    context = {
         'recipe': recipe,
-        'is_detail_page': True,
-    })
+        'title': f'{recipe.title} - Recipe | Recipes',
+    }
+
+    return render(request, 'recipes/pages/recipe.html', context)
+
