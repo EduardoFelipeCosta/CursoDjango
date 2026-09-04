@@ -42,5 +42,5 @@ def recipe(request, id):
         'title': f'{recipe.title} - Recipe | Recipes',
     }
 
-    return render(request, 'recipes/pages/recipe.html', context)
+    return render(request, 'recipes/pages/recipe-view.html', context)
 
