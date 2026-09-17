@@ -39,11 +39,16 @@ def recipe(request, id):
 
     context = {
         'recipe': recipe,
-        'title': f'{recipe.title} - Recipe | Recipes',
+        'title': f'{recipe.title} - Recipe',
     }
 
     return render(request, 'recipes/pages/recipe-view.html', context)
 
 def search(request):
-    return render(request, 'recipes/pages/search.html', context={})
+    search_term = request.GET.get('q', '').strip()
+    if not search_term:
+        raise Http404()
+    return render(request, 'recipes/pages/search.html', {
+        'page_title': f'Search for "{search_term}"',
+    })
 
