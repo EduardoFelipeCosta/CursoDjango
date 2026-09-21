@@ -47,7 +47,7 @@ class RecipeTestBase(TestCase):
             
         return Recipe.objects.create(
             category=category_data or self.make_category(),
-            author=author_data or self.make_author(),
+            author=self.make_author(**author_data),
             title=title,
             description=description,
             slug=slug,
