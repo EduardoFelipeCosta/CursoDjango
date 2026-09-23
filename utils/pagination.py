@@ -6,7 +6,7 @@ def make_pagination_range(
     current_page,
     
 ):
-    midle_range = qty_pages//2
+    midle_range = math.ceil(qty_pages//2)
     start_range = current_page - midle_range
     stop_range =  current_page + midle_range
     total_pages = len(page_range)
@@ -19,6 +19,10 @@ def make_pagination_range(
         
     if stop_range >= total_pages:
         start_range = start_range - abs(total_pages - stop_range)
+    
+    if start_range < 0:
+        start_range = 0
+    
     pagination = page_range [start_range:stop_range]
     return {
         'pagination': pagination,
